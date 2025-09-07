@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "TechNova",
+    "logo": "/img/juno-jo-RB9LxkWC9tE-unsplash.jpg",
+    "shortDescription": "Startup de software enfocada en soluciones web.",
+    "practiceAreas": ["Frontend", "Backend", "QA"]
+  },
+  {
+    "id": 2,
+    "name": "DataVision",
+    "logo": "/img/bienvenida.jpg",
+    "shortDescription": "Consultoría en datos e inteligencia de negocios.",
+    "practiceAreas": ["Data Analytics", "BI", "SQL"]
+  },
+  {
+    "id": 3,
+    "name": "GreenWorks",
+    "logo": "/img/login.jpg",
+    "shortDescription": "Proyectos sostenibles y energías renovables.",
+    "practiceAreas": ["IoT", "Sensores", "Electrónica"]
+  },
+  {
+    "id": 4,
+    "name": "CloudBridge",
+    "logo": "/img/bienvenida.jpg",
+    "shortDescription": "Integraciones cloud y microservicios.",
+    "practiceAreas": ["DevOps", "Cloud", "APIs"]
+  },
+  {
+    "id": 5,
+    "name": "SecuPro",
+    "logo": "/img/juno-jo-RB9LxkWC9tE-unsplash.jpg",
+    "shortDescription": "Ciberseguridad y pruebas de penetración.",
+    "practiceAreas": ["Security", "Pentesting"]
+  }
+]
