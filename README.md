@@ -1,17 +1,66 @@
-<<<<<<< HEAD
-# React + Vite
+# Proyecto Integrador 2  
+## Plataforma de Seguimiento y Asesoría para Prácticas Académicas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## Participantes
+- Jorge Rodríguez  
+- Manuel Ortiz  
+- Dayanna Díaz
+  
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Información académica
+- Materia: Proyecto Integrador 2  
+- Programa: Ingeniería de Sistemas  
+- Semestre: 5°  
+- Institución: Corporación Universitaria Adventista 
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# Orion-
-Proyecto Integrador 2 : hecho por manuel ortiz dayana diaz jorge rodriguez
->>>>>>> a92e420edab14255c4b1f19ab81d64e13c9c03d0
+## Descripción del proyecto
+La Plataforma de Seguimiento y Asesoría para Prácticas Académicas es un sistema digital que busca optimizar la gestión de las prácticas académicas universitarias.  
+Permite que estudiantes, docentes y tutores empresariales interactúen en un mismo entorno, facilitando el monitoreo de avances, la organización de información y la orientación continua durante todo el proceso.
+
+---
+
+## Tecnologías utilizadas
+- Frontend: React + Vite  
+- Backend: Django REST Framework  
+- Base de datos: PostgreSQL  
+- Control de calidad: ESLint  
+- Gestión de versiones: Git + GitHub  
+
+---
+
+## Instalación y ejecución
+
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/usuario/proyecto.git
+cd proyecto
+```
+
+### 2. Configuración del frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+El frontend estará disponible en:  
+http://localhost:5173/
+
+### 3. Configuración del backend
+```bash
+cd backend
+pip install -r requirements.txt
+python manage.py runserver
+```
+El backend estará disponible en:  
+http://localhost:8000/
+
+---
+
+## Notas finales
+- Se recomienda crear un entorno virtual en Python para manejar las dependencias.  
+- En caso de fallos en el frontend, eliminar la carpeta `node_modules` y reinstalar con `npm install`.
