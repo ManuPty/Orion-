@@ -239,3 +239,26 @@ h2{margin:0 0 .5rem; font-size:34px}
 
 /* ---------- Footer ---------- */
 .footer{margin-top:30px;padding:20px;text-align:center;color:#475569;border-top:1px solid #e2e8f0}
+
+/* Estilo del botón */
+.btn-navigate-offers {
+  background-color: #007bff; /* Color principal del proyecto */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.btn-navigate-offers:hover {
+  background-color: #0056b3; /* Color más oscuro para el hover */
+  transform: scale(1.05); /* Efecto de agrandamiento al pasar el mouse */
+}
+
+.btn-navigate-offers:active {
+  background-color: #003f7f; /* Color más oscuro al hacer clic */
+  transform: scale(0.95); /* Efecto de reducción al hacer clic */
+}

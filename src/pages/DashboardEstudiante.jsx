@@ -1,8 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import "../assets/css/styles.css";
+import "../assets/css/styles.css"; // ajusta la ruta si es necesario
 
 const DashboardEstudiante = () => {
+  const navigate = useNavigate();
+
+  // Handlers de navegación
+  const goHome = () => navigate("/");
+  const goOffers = () => navigate("/ofertas-practica");
+  const goUploadReport = () => navigate("/upload-report");
+  const goFeedback = () => navigate("/feedback");
+  const goCalendar = () => navigate("/calendar");
+  const goActivities = () => navigate("/activities");
+
+  // ejemplo: podrías calcular el porcentaje dinámicamente
+  const practicaProgress = "70%";
+
   return (
     <div className="dashboard">
       {/* Topbar */}
@@ -14,14 +28,11 @@ const DashboardEstudiante = () => {
           <span>
             <i className="fa-solid fa-user"></i> Bienvenido, John Doe
           </span>
-          <span className="notif">
-            <i className="fa-solid fa-bell"></i>
+          <span className="notif" aria-label="notificaciones">
+            <i className="fa-solid fa-bell" aria-hidden="true"></i>
             <sup>1</sup>
           </span>
-          <button
-            className="btn"
-            onClick={() => (window.location.href = "/")}
-          >
+          <button className="btn" onClick={goHome} aria-label="Salir">
             <i className="fa-solid fa-arrow-right-from-bracket"></i> Salir
           </button>
         </div>
@@ -35,10 +46,18 @@ const DashboardEstudiante = () => {
             <p className="muted">Empresa XYZ</p>
             <p className="muted">Tutor: Juan Pérez</p>
 
-            <div className="progress">
-              <div className="progress__bar" style={{ "--value": "70%" }}></div>
-              <span className="progress__label">70%</span>
+            <div className="progress" role="progressbar" aria-valuenow={70} aria-valuemin={0} aria-valuemax={100}>
+              {/* En React, para usar variables CSS custom safely: */}
+              <div
+                className="progress__bar"
+                style={{ "--value": practicaProgress }}
+              />
+              <span className="progress__label">{practicaProgress}</span>
             </div>
+
+            <button className="btn" onClick={goOffers}>
+              Ver Ofertas de Prácticas
+            </button>
           </article>
 
           <article className="card card--xl">
@@ -47,12 +66,10 @@ const DashboardEstudiante = () => {
             </div>
             <div className="panel">
               <p>
-                <i className="fa-solid fa-file-circle-check"></i> Reporte
-                semanal – <b>viernes</b>
+                <i className="fa-solid fa-file-circle-check"></i> Reporte semanal – <b>viernes</b>
               </p>
               <p>
-                <i className="fa-solid fa-pen-ruler"></i> Actividad N°4 –{" "}
-                <b>25/09</b>
+                <i className="fa-solid fa-pen-ruler"></i> Actividad N°4 – <b>25/09</b>
               </p>
             </div>
           </article>
@@ -62,16 +79,16 @@ const DashboardEstudiante = () => {
         <section className="quick">
           <h2>Accesos Rápidos</h2>
           <div className="quick__grid">
-            <button className="quick__btn">
+            <button className="quick__btn" onClick={goUploadReport}>
               <i className="fa-solid fa-cloud-arrow-up"></i> Subir Reporte
             </button>
-            <button className="quick__btn">
+            <button className="quick__btn" onClick={goFeedback}>
               <i className="fa-solid fa-comment-dots"></i> Feedback
             </button>
-            <button className="quick__btn">
+            <button className="quick__btn" onClick={goCalendar}>
               <i className="fa-solid fa-calendar-days"></i> Calendario
             </button>
-            <button className="quick__btn">
+            <button className="quick__btn" onClick={goActivities}>
               <i className="fa-solid fa-list-check"></i> Actividades
             </button>
           </div>
