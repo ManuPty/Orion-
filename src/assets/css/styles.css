@@ -227,7 +227,15 @@ h2{margin:0 0 .5rem; font-size:34px}
 .card__header{display:flex;align-items:center;gap:12px}
 .card__logo{width:40px;height:40px;border-radius:8px;object-fit:cover}
 .card__title{margin:0;font-size:18px;color: #ffffff;}
-.card__desc{margin:0;color:#334155}
+.card__desc {
+  margin: 0;
+  color: #334155; 
+  text-align: center; 
+  line-height: 1.4;
+  font-size: 15px;
+  opacity: 0.95; 
+}
+
 .card__tags{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 6px;padding:0;list-style:none}
 .tag{font-size:12px;padding:6px 8px;background:#018ABE;border:1px solid ;border-radius:999px}
 
@@ -238,7 +246,7 @@ h2{margin:0 0 .5rem; font-size:34px}
 .btn--ghost{background:#fff;color:#0f172a;border-color:#cbd5e1}
 
 /* ---------- Footer ---------- */
-.footer{margin-top:30px;padding:20px;text-align:center;color:#475569;border-top:1px solid #e2e8f0}
+.footer{margin-top:30px;padding:20px;text-align:center;color:white;border-top:1px solid #e2e8f0}
 
 /* Estilo del botón */
 .btn-navigate-offers {

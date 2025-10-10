@@ -1,14 +1,7 @@
-// src/pages/Login.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/styles.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
-const USERS = {
-  docente25: { pass: "123", role: "tutor-academico", name: "John Doe" },
-  empresa25: { pass: "456", role: "tutor-empresarial", name: "John Doe" },
-  estudiante25: { pass: "789", role: "estudiante", name: "John Doe" },
-};
 
 const ROUTES = {
   "tutor-academico": "/dashboard-tutor-academico",
@@ -19,36 +12,58 @@ const ROUTES = {
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
+    setError("");
 
-    const record = USERS[username.trim()];
-    if (!record || record.pass !== password) {
-      setError(true);
-      return;
+    try {
+      const base = import.meta.env.VITE_API_URL || "";
+      const res = await fetch(base + "/api/token/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ detail: "Login failed" }));
+        setError(err.detail || "Credenciales inválidas");
+        return;
+      }
+
+      const data = await res.json();
+      localStorage.setItem("accessToken", data.access);
+      localStorage.setItem("refreshToken", data.refresh);
+
+      // Obtener datos del usuario
+      const meRes = await fetch(base + "/api/me/", {
+        headers: { Authorization: "Bearer " + data.access },
+      });
+      const profile = await meRes.json();
+
+      localStorage.setItem("userRole", profile.role);
+      localStorage.setItem(
+        "studentName",
+        profile.get_full_name || profile.username || profile.first_name || ""
+      );
+
+      const route = ROUTES[profile.role] || "/";
+      navigate(route);
+    } catch (err) {
+      console.error(err);
+      setError("Error de conexión con el servidor");
     }
-
-    // Guardar sesión en localStorage
-    const session = {
-      user: username,
-      name: record.name,
-      role: record.role,
-      ts: Date.now(),
-    };
-    localStorage.setItem("session", JSON.stringify(session));
-
-    // Redirigir según el rol
-    navigate(ROUTES[record.role]);
-  };
+  }
 
   return (
     <div className="login-page">
       <div className="split">
+        {/* Panel izquierdo con imagen o color */}
         <div className="split__left bg-login"></div>
 
+        {/* Panel derecho con formulario */}
         <div className="split__right">
           <h2>Iniciar Sesión</h2>
 
@@ -85,7 +100,7 @@ export default function Login() {
 
             {error && (
               <div className="alert alert--error" role="alert">
-                Usuario o contraseña incorrectos.
+                {error}
               </div>
             )}
 
