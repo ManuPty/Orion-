@@ -62,5 +62,6 @@ http://localhost:8000/
 ---
 
 ## Notas finales
+- Acceso al backend: https://github.com/ManuPty/Orion_backend
 - Se recomienda crear un entorno virtual en Python para manejar las dependencias.  
 - En caso de fallos en el frontend, eliminar la carpeta `node_modules` y reinstalar con `npm install`.
